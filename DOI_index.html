@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<title>Metadata DOI</title>
+	<link href="css/bootstrap-combined.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen"
+	 href="css/bootstrap-datetimepicker.min.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript"
+	 src="js/jquery.min.js">
+	</script> 
+	<script type="text/javascript"
+	 src="js/bootstrap.min.js">
+	</script>
+	<script type="text/javascript"
+	 src="js/bootstrap-datetimepicker.min.js">
+	</script>
+</head>
+
+<body>
+<div class="container">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="https://cdgp.u-strasbg.fr/">
+				<div class="form-group row">
+					<div class="col-xs-2"><img src="img/logo_cdgp.png" width="100" height="100"></div>
+				Centre de Données de Géothermie Profonde
+				</div>
+			</a>
+		</div>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active" href='DOI_index.html'><a href="DOI_index.html">Metadata DOI</a></li>
+				<li><a href="upload.html">Uploading metadata</a></li>
+				<li href='excel.html'><a href="excel.html">Excel tools</a></li>
+				<li><a href="about.html">About and Procedures</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+<div class="page-header">
+<h1><center>Metadata Creation for DOI</center></h1>
+<h1><center>Outil de création de métadonnées pour DOI</center></h1>
+</div>
+<form method="post" action="DOI_create03.py">
+<fieldset>
+	<p><h2> Resource identification - Identification de la ressource</h2></p>
+	<p>
+	<div class="form-group row">
+		<label class="col-xs-2 col-form-label">DOI *</label>
+		<div class="col-xs-9">
+			<input name="doi"  class="form-control" pattern="10.150/[1-9-A-Za-z-.]{1,90}" autocomplete="on" placeholder="10.150/" value="10.150/" required="true" type="text">
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label class="col-xs-2 col-form-label">URL *</label>
+		<div class="col-xs-9">
+			<input name="url"  class="form-control"  autocomplete="on" placeholder="https://www." value="http://www." required="true" type="text">
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label" value="test">Title/ Titre*</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="title" required>
+		</div>
+	</div>
+	</p>
+
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label" value="test">Subtitle/ Sous-titre</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="subtitle">
+		</div>
+	</div>
+	</p>
+
+	<p>
+	<div class="form-group row">
+		<label for="abstract" class="col-xs-2 col-form-label">Abstract/ Résumé</label>
+		<div class="col-xs-9">
+			<textarea class="form-control" name="abstract" rows="3"></textarea>
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="datatype" class="col-xs-2 col-form-label">Data Type </label>
+		<div class="col-xs-9">
+		<select class="form-control" name="datatype">
+			<option>Dataset</option>
+			<option>Audiovisual</option>
+			<option>Collection</option>
+			<option>Event</option>
+			<option>Image</option>
+			<option>InteractiveResource</option>
+			<option>Model</option>
+			<option>PhysicalObject</option>
+			<option>Service</option>
+			<option>Software</option>
+			<option>Sound</option>
+			<option>Text</option>
+			<option>Workflow</option>
+			<option>Other</option>
+		</select>
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label class="col-xs-2 col-form-label">Data type description/ description du type de fichier </label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="datatypeText">
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="datatype" class="col-xs-2 col-form-label">Language/ Langue </label>
+		<div class="col-xs-9">
+		<select class="form-control" name="language">
+		  <option>en</option>
+		  <option>fr</option>
+		</select>
+		</div>
+	</div>
+	</p>
+</fieldset>
+<fieldset>
+<h2><p>Author(s) and publisher - Auteur(s) et éditeur</h2></p>
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label">Author name/ Nom de l'auteur*</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="authorName0" required>
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label">Author first name/ Prénom de l'auteur</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="authorFirstname0">
+		</div>
+	</div>  
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label">Affiliation</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="authorAffiliation0">
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label">ORCID ID / Identifiant ORCID</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="authorOrcid0" >
+		</div>
+	</div>
+	</p>
+  <div class="dynamic-stuff">
+      <div class="form-group row">
+	  <label class="col-xs-2 col-form-label" value="test">Add Author</label>
+          <p class="add-one"><button id="b1" class="btn btn-primary" type="button">+</button></p>
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+var counterAuthor = 0
+$('.add-one').click(function(){
+  counterAuthor++;
+  $('<div class="add-to-del"><p>	<div class="form-group row">	<label for="title" class="col-xs-2 col-form-label">Author name/ Nom de l auteur</label><div class="col-xs-9"><input class="form-control" type="text" name="authorName'+counterAuthor+'" required>	</div>	</div>	</p>	<p>	<div class="form-group row">		<label for="title" class="col-xs-2 col-form-label">Author first name/ Prénom de l auteur*</label>		<div class="col-xs-9">			<input class="form-control" type="text" name="authorFirstname'+counterAuthor+'">	</div></div>  	</p>	<p>	<div class="form-group row">		<label for="title" class="col-xs-2 col-form-label">Affiliation *</label>		<div class="col-xs-9">			<input class="form-control" type="text" name="authorAffiliation'+counterAuthor+'">		</div>	</div>	</p>	<p>	<div class="form-group row">		<label for="title" class="col-xs-2 col-form-label">ORCID ID / Identifiant ORCID</label>		<div class="col-xs-9">			<input class="form-control" type="text" name="authorOrcid'+counterAuthor+'" >		</div>	</div>	</p>      			<p class="delete"><button id="b2" class="btn btn-primary" type="button">-</button></p>    </div>  </div></div></div>').appendTo('.dynamic-stuff').show();
+  attach_delete();
+});
+
+</script>
+<p><legend> Publisher(s) / Editeur(s) </legend></p>
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label">Publisher/ Editeur*</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="publisher0" required>
+		</div>
+	</div>
+	</p>
+<!--  <div class="dynamic-stuff2">
+      <div class="form-group row">
+	  <label class="col-xs-2 col-form-label" value="test">Add Publisher</label>
+          <p class="add-one1"><button id="b1" class="btn btn-primary" type="button">+</button></p>
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+var counterPublisher = 0
+$('.add-one1').click(function(){
+  counterPublisher ++;
+  $('<div class="add-to-del"><div class="form-group row"><label for="title" class="col-xs-2 col-form-label">Publisher/ Editeur*</label><div class="col-xs-9"><input class="col-xs-9 col-form-label" type="text" name="publisher'+counterPublisher+'"><p class="delete"><button class="btn btn-primary" type="button">-</button></p></div></div>').appendTo('.dynamic-stuff2').show();
+  attach_delete();
+});
+</script> -->
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label">Publication year*</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="number" min="1900" max="2050" value="2017"name="year" required>
+		</div>
+	</div>
+<p><legend> Contributors(s) / Contributeur(s) </legend></p>
+
+  <div class="dynamic-stuff3">
+      <div class="form-group row">
+	  <label class="col-xs-2 col-form-label" value="test">Add Contributor</label>
+          <p class="add-one3"><button id="b1" class="btn btn-primary" type="button">+</button></p>
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+var counterContributor = 0
+$('.add-one3').click(function(){
+  counterContributor ++;
+  $('<div class="add-to-del"><p><div class="form-group row"><label class="col-xs-2 col-form-label">Contributor type/ Type de contributeur</label><div class="col-xs-9">		<select class="form-control" name="contributorType'+counterContributor+'"><option>ContactPerson</option><option>DataCollector  </option><option>DataCurator   </option><option>DataManager   </option><option>Distributor  </option><option>Editor  </option><option>HostingInstitution  </option><option>Producer  </option><option>ProjectLeader  </option><option>ProjectManager  </option><option>ProjectMember  </option><option>RegistrationAgency  </option><option>RegistrationAuthority  </option><option>RelatedPerson  </option><option>Researcher  </option><option>ResearchGroup  </option><option>RightsHolder  </option><option>Sponsor  </option><option>Supervisor  </option><option>WorkPackageLeader  </option><option>Other</option></select></div></p><p><div class="form-group row"></div><label for="title" class="col-xs-2 col-form-label">Contributor name/ Nom du contributeur</label><div class="col-xs-9"><input class="form-control" type="text" id=contributorName name="contributorName'+counterContributor+'"></div></div></p><p>	<div class="form-group row">		<label for="title" class="col-xs-2 col-form-label">Contributor first name/ Prénom du contributeur</label>		<div class="col-xs-9">			<input class="form-control" type="text" name="contributorFirstname'+counterContributor+'">		</div>	</div></p> 	<p>	<div class="form-group row">		<label class="col-xs-2 col-form-label">Affiliation </label>		<div class="col-xs-9">			<input class="form-control" type="text" name="contributorAffiliation'+counterContributor+'" >		</div>	</div>	</p>	<p>	<div class="form-group row">		<label for="title" class="col-xs-2 col-form-label">ORCID ID / Identifiant ORCID</label>		<div class="col-xs-9">			<input class="form-control" type="text" name="ContributorOrcid'+counterContributor+'" >		</div>	</div>	</p>      			<p class="delete"><button id="b2" class="btn btn-primary" type="button">-</button></p>    </div>  </div></div></div>').appendTo('.dynamic-stuff3').show();
+  attach_delete();
+});
+
+
+//Attach functionality to delete buttons
+function attach_delete(){
+  $('.delete').off();
+  $('.delete').click(function(){
+    console.log("click");
+    $(this).closest('.add-to-del').remove();
+  });
+}
+
+</script>
+</fieldset>
+<fieldset>	
+	<p><h2>Constraints, Parameters and Keywords - Contraintes, paramètres et mots-clés</h2></p>
+	<p><legend> Constraints / Contraintes</legend></p>
+	<p>
+	<div class="form-group row">
+		<label for="access" class="col-xs-2 col-form-label">License / Licence</label>
+		<div class="col-xs-9">
+		<select class="form-control" name="license">
+<option>None</option>
+<option>Creative Commons Attribution 4.0 International License (CC-BY 4.0)</option>
+<option>Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</option>
+<option>Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)</option>
+<option>Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</option>
+<option>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</option>
+<option>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</option>
+<option>Other</option>
+
+		</select>
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-9">
+		<a href="https://creativecommons.org/share-your-work/" class="col-xs-9 col">How to choose your Creative Commons license ?</a>	
+		</div>
+</p>
+	</div>
+	<p><legend> Parameters / paramètres</legend></p>
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label" value="test">Format</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="format1">
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="quality" class="col-xs-2 col-form-label">Size of files / Taille des fichiers</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="size">
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="quality" class="col-xs-2 col-form-label">Version</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="version">
+		</div>
+	</div>
+	</p>
+	<p><legend> Keywords / mots-clés</legend></p>
+	<p>
+<h5> Please fill this section without any capital letter (except proper nouns such as locations). A subject field should contain only one keyword.</h5>
+<h5>Veuillez remplir cette section sans lettre majuscule (sauf nom propre tels que les localités). Un champ doit correspondre à un seul mot-clé.</h5>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label">Subject / Sujet</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="subject0">
+		</div>
+	</div>
+	</p>
+  <div class="dynamic-stuff4">
+      <div class="form-group row">
+	  <label class="col-xs-2 col-form-label" value="test">Add subject</label>
+          <p class="add-one4"><button id="b2" class="btn btn-primary" type="button">+</button></p>
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+var counterSubject = 0
+$('.add-one4').click(function(){
+  counterSubject ++;
+  $('<div class="add-to-del"><div class="form-group row"><label for="title" class="col-xs-2 col-form-label">Subject / Sujet</label><div class="col-xs-9"><input class="col-xs-9 col-form-label" type="text" name="subject'+counterSubject+'"><p class="delete"><button class="btn btn-primary" type="button">-</button></p></div></div>').appendTo('.dynamic-stuff4').show();
+  attach_delete();
+});
+</script>
+	</p>
+	<p><legend> Related resources / Ressources associées</legend></p>
+  <div class="dynamic-stuff5">
+      <div class="form-group row">
+	  <label class="col-xs-2 col-form-label" value="test">Add related resources</label>
+          <p class="add-one5"><button id="b2" class="btn btn-primary" type="button">+</button></p>
+      </div>
+  </div>
+</div>
+<script type="text/javascript">
+var counterResource = 0
+$('.add-one5').click(function(){
+  counterResource ++;
+  $('<div class="add-to-del">	<p>	<div class="form-group row">		<label for="datatype" class="col-xs-2 col-form-label">Relation type </label>		<div class="col-xs-9">		<select class="form-control" name="relationType'+counterResource+'"><option>IsCitedBy  </option><option>Cites  </option><option>IsSupplementTo  </option><option>IsSupplementedBy  </option><option>IsContinuedBy  </option><option>Continues  </option><option>HasMetadata  </option><option>IsMetadataFor  </option><option>IsNewVersionOf  </option><option>IsPreviousVersionOf  </option><option>IsPartOf  </option><option>HasPart  </option><option>IsReferencedBy  </option><option>References  </option><option>IsDocumentedBy  </option><option>Documents  </option><option>IsCompiledBy  </option><option>Compiles  </option><option>IsVariantFormOf  </option><option>IsOriginalFormOf  </option><option>IsIdenticalTo  </option><option>IsReviewedBy  </option><option>Reviews  </option><option>IsDerivedFrom  </option><option>IsSourceOf</option>	</select>		</div>	</div>	</p>	<p>	<div class="form-group row">		<label class="col-xs-2 col-form-label">Related Identifier type </label>		<div class="col-xs-9">		<select class="form-control" name="relationIDtype'+counterResource+'"><option>ARK  </option><option>arXiv  </option><option>bibcode  </option><option>DOI  </option><option>EAN13  </option><option>EISSN  </option><option>Handle  </option><option>IGSN  </option><option>ISBN  </option><option>ISSN  </option><option>ISTC  </option><option>LISSN  </option><option>LSID  </option><option>PMID  </option><option>PURL  </option><option>UPC  </option><option>URL  </option><option>URN</option>		</select>		</div>	</div>	</p>	</p>	<div class="form-group row">		<label class="col-xs-2 col-form-label">Identifier</label>		<div class="col-xs-9">			<input class="form-control" type="text" name="relatedID'+counterResource+'">		</div>	</div>	</p><p class="delete"><button class="btn btn-primary" type="button">-</button></p></div>').appendTo('.dynamic-stuff5').show();
+  attach_delete();
+});
+</script>
+
+</fieldset>
+<fieldset>
+	<h2> Spatial extent / Etendue spatiale</h2>
+
+	<p>
+	<div class="form-group row">
+		<label for="title" class="col-xs-2 col-form-label" value="test">Location / Localisation</label>
+		<div class="col-xs-9">
+			<input class="form-control" type="text" name="location">
+		</div>
+	</div>
+	</p>
+	<p>
+	<div class="form-group row">
+		<label for="geosys" class="col-xs-2 col-form-label">Geographic coordinate system *</label>
+		<div class="col-xs-9">
+		<select class="form-control" name="geosys">
+		  <option>WGS84</option>
+		  <option>Lambert III</option>
+		</select>
+		</div>
+	</div>
+	</p>
+	<div class="form-check">
+		<div class="row">
+		 <label class="col-xs-3 col-form-label">Point **: Longitude (&degN)</label>
+		  <input type="number"  min="-90" max="90" step="0.000001" class="col-xs-2 col-form-label" name="longitude" >
+		  <label for="lat1" class="col-xs-2 col-form-label">Latitude (&degE)</label>
+		  <input type="number" min="-180" max="180" step="0.000001" class="col-xs-2 col-form-label" name="latitude" >
+		</div>
+		<div class="row">
+		<label class="col-xs-3 col-form-label">Bounding box **:</label>
+		</div>
+		<div class="row">  
+		<label for="space" class="col-xs-1 col-form-label"></label>
+		  <label class="col-xs-2 col-form-label">North (&degN)</label>
+		  <input type="number" max="90" step="0.000001" class="col-xs-2 col-form-label" name="north" id="north" 
+				onchange="document.getElementById('south').max=this.value;">
+		  <label for="south" class="col-xs-2 col-form-label">South (&degN)</label>
+		  <input type="number" min="-90" max="90" step="0.000001" class="col-xs-2 col-form-label" name="south" id="south" 
+			onchange="document.getElementById('north').min=this.value;">
+		</div>
+		<div class="row">
+			<label for="space" class="col-xs-1 col-form-label"></label>
+		  <label for="west"class="col-xs-2 col-form-label">West(&degE)</label>
+		  <input type="number" min="-180" max="180" step="0.000001" class="col-xs-2 col-form-label" name="west" id="east" 
+			onchange="document.getElementById('east').min=this.value;">
+		  <label for="east" class="col-xs-2 col-form-label">East (&degE)</label>
+		  <span id="container">
+		  <input type="number" min="-180" max="180" step="0.000001" class="col-xs-2 col-form-label" name="east" id="east" 
+			onchange="document.getElementById('west').max=this.value;">
+		</span>
+	</div>
+	</div>
+	</p>
+</fieldset>
+
+
+<fieldset>
+  <center><button type="submit" class="btn btn-primary">Submit</button></center>
+</fieldset>
+</form>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+
+  </body>
+</html>
+
